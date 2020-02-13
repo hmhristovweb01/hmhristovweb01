@@ -1,3 +1,24 @@
-Hello!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
 
-<a href="https://search-maps.yandex.ru/v1/?text=Рай,Россия&type=geo&lang=ru_RU&apikey=99a78df4-248c-4f04-98a2-257c2ac6e9db">link</a>
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    $.getJSON('https://search-maps.yandex.ru/v1/?text=Рай,Россия&type=geo&lang=ru_RU&apikey=99a78df4-248c-4f04-98a2-257c2ac6e9db', function(data) {
+        
+        var text = `Date: ${data.date}<br>
+                    Time: ${data.time}<br>
+                    Unix time: ${data.milliseconds_since_epoch}`
+                    
+        
+        $(".mypanel").html(text);
+    });
+    </script>
+    
+</body>
+</html>
